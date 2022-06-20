@@ -16,12 +16,12 @@ module.exports.userInfo = (req, res) => {
     }).select("-password");
 };
 
-module.exports.updateUser = async (req, res) => {
+module.exports.updateUser = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
         return res.status(400).send("ID unknown : " + req.params.id);
 
     try {
-        await UserModel.findOneAnd(
+        UserModel.findOneAndUpdate(
             { _id: req.params.id },
             {
                 $set: {
@@ -35,6 +35,8 @@ module.exports.updateUser = async (req, res) => {
             }
         );
     } catch (err) {
+        console.log("docs");
+
         return res.status(500).json({ message: err });
     }
 };
