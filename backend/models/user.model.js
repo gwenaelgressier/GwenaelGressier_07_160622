@@ -2,13 +2,14 @@ const mongoose = require("mongoose");
 const { isEmail } = require("validator");
 const bcrypt = require("bcrypt");
 
+//Schema de création d'une fiche utilisateur.
 const userSchema = new mongoose.Schema(
     {
         pseudo: {
             type: String,
             required: true,
             minLength: 3,
-            maxLength: 55,
+            maxLength: 30,
             unique: true,
             trim: true,
         },
@@ -24,7 +25,7 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true,
             max: 1024,
-            minlength: 6,
+            minlength: 4,
         },
         picture: {
             type: String,
@@ -33,6 +34,12 @@ const userSchema = new mongoose.Schema(
         bio: {
             type: String,
             max: 1024,
+        },
+        followers: {
+            type: [String],
+        },
+        following: {
+            type: [String],
         },
         likes: {
             type: [String],
@@ -43,13 +50,14 @@ const userSchema = new mongoose.Schema(
     }
 );
 
-// play function before save into DB,
+// fonction pour "saler"(crypter) les mots de passe.
 userSchema.pre("save", async function (next) {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(this.password, salt);
     next();
 });
-//desalt le mdp pour se connecter
+
+//fonction pour décrypter un mod de passe
 userSchema.statics.login = async function (email, password) {
     const user = await this.findOne({ email });
     if (user) {

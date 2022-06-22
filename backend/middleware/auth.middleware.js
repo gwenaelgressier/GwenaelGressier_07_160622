@@ -15,6 +15,7 @@ module.exports.checkUser = (req, res, next) => {
                 } else {
                     let user = await UserModel.findById(decodedToken.id);
                     res.locals.user = user;
+                    console.log(user);
                     next();
                 }
             }
@@ -25,6 +26,7 @@ module.exports.checkUser = (req, res, next) => {
     }
 };
 
+//Verification de l'existence et de la validité du token de l'utilisateur
 module.exports.requireAuth = (req, res, next) => {
     const token = req.cookies.jwt;
     if (token) {
@@ -34,6 +36,7 @@ module.exports.requireAuth = (req, res, next) => {
             async (err, decodedToken) => {
                 if (err) {
                     console.log(err);
+                    res.send(200).json("no token");
                 } else {
                     console.log(decodedToken.id);
                     next();
