@@ -20,8 +20,7 @@ const App = () => {
                 .catch((err) => console.log("No token"));
         };
         fetchToken();
-    }, [uid]);//[uid] à chaque foit que uid evolue tu rejoue App 
-    
+    }, [uid]); //[uid] à chaque foit que uid evolue tu rejoue App
 
     return (
         <UidContext.Provider value={uid}>
