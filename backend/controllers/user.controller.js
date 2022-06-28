@@ -22,12 +22,12 @@ module.exports.userInfo = (req, res) => {
 };
 
 //Updater le profil d'un utilisateur
-module.exports.updateUser = async (req, res) => {
+module.exports.updateUser = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
         return res.status(400).send("ID unknown : " + req.params.id);
 
     try {
-        await UserModel.findOneAndUpdate(
+        UserModel.findOneAndUpdate(
             { _id: req.params.id },
             {
                 $set: {

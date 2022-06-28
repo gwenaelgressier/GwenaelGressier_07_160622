@@ -176,36 +176,30 @@ module.exports.commentPost = (req, res) => {
 
 module.exports.editCommentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
-        //
-        return res.status(400).send("ID unknown : " + req.params.id); //
+        return res.status(400).send("ID unknown : " + req.params.id);
 
     try {
         return PostModel.findById(req.params.id, (err, docs) => {
-            let theComment = "";
-            theComment = docs.comments.find(
-                (comment) => comment.id === req.body.id
+            const theComment = docs.comments.find((comment) =>
+                comment._id.equals(req.body.commentId)
             );
-            if (!theComment)
-                return res
-                    .status(404)
-                    .send("Comment not found : " + req.body._id);
+
+            if (!theComment) return res.status(404).send("Comment not found");
             theComment.text = req.body.text;
 
             return docs.save((err) => {
                 if (!err) return res.status(200).send(docs);
-                else return res.status(500).send(err);
+                return res.status(500).send(err);
             });
         });
     } catch (err) {
-        console.log(err);
-        return;
+        return res.status(400).send(err);
     }
 };
 
 module.exports.deleteCommentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
-        //
-        return res.status(400).send("ID unknown : " + req.params.id); //
+        return res.status(400).send("ID unknown : " + req.params.id);
 
     try {
         return PostModel.findByIdAndUpdate(
@@ -213,17 +207,17 @@ module.exports.deleteCommentPost = (req, res) => {
             {
                 $pull: {
                     comments: {
-                        _id: req.body.id,
+                        _id: req.body.commentId,
                     },
                 },
             },
+            { new: true },
             (err, docs) => {
                 if (!err) return res.send(docs);
                 else return res.status(400).send(err);
             }
         );
     } catch (err) {
-        console.log(err);
-        return;
+        return res.status(400).send(err);
     }
 };
