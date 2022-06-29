@@ -7,7 +7,7 @@ module.exports.signUpErrors = (err) => {
     if (err.message.includes("email")) errors.email = "Email invalide";
     //mot de passe trop court ou trop long
     if (err.message.includes("password"))
-        errors.password = "Le mot de passe doit faire entre 4 et 44 caractères";
+        errors.password = "Le mot de passe doit faire 6 caractères minimum";
     //le code d'erreur 11000 s'affiche quand un élément unique existe déjà, on distingue simplement les pseudo et mails dans ce cas de figure
     if (err.code === 11000 && Object.keys(err.keyValue)[0].includes("pseudo"))
         errors.pseudo = "Ce pseudo est déjà enregistré";

@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import Navigation from "../components/Navigation";
 import Log from "../components/Log";
 import logo from "../styles/assets/img/icon-left-font-monochrome-black.svg";
 import { UidContext } from "../components/AppContext";
@@ -8,7 +7,6 @@ const Profil = () => {
     const uid = useContext(UidContext);
     return (
         <div className="profil-page">
-            <Navigation />
             {/*si j'ai un token et que je reclick sur profil aller sur upate page*/}
             {uid ? (
                 <h1>UPDATE PAGE</h1>
