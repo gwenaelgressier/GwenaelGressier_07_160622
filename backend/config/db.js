@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const paswords = process.env.DB_PASSWORDS; //se conecter à la base de données avec la variable d'environnement
+const paswords = process.env.DB_PASSWORDS;
 const userName = process.env.DB_USER;
 const db = process.env.DB_NAME;
 let uri;

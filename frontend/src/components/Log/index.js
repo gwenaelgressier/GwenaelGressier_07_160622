@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SignUpForm from "./SignUpForm";
 import SignInForm from "./SignInForm";
 
+// eslint-disable-next-line
 {
     /*suivant la page de par la quelle on apelle le component on aura signup ou signin afficher*/
 }
@@ -9,6 +10,7 @@ const Log = (props) => {
     const [signUpModal, setSignUpModal] = useState(props.signup);
     const [signInModal, setSignInModal] = useState(props.signin);
 
+    // eslint-disable-next-line
     {
         /*si on appuie sur s'inscrire change les etat si on appuie sur se connecter change les etat a l''inverse*/
     }

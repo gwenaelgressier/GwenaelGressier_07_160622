@@ -5,10 +5,14 @@ import Profil from "./page/Profil";
 import Trending from "./page/Trending";
 import { UidContext } from "./components/AppContext";
 import axios from "axios";
-import Navigation from "./components/Navigation";
+import Navbar from "./components/Navbar";
+import { useDispatch } from "react-redux";
+import { getUser } from "./actions/user.actions";
+import LeftNav from "./components/LeftNav";
 
 const App = () => {
     const [uid, setUid] = useState(null);
+    const dispatch = useDispatch();
     //a chaque fois que app est appellé controle du token
     useEffect(() => {
         const fetchToken = async () => {
@@ -17,16 +21,18 @@ const App = () => {
                 url: `${process.env.REACT_APP_API_URL}jwtid`,
                 withCredentials: true,
             })
-                .then((res) => setUid(res.data))
+                .then((res) => setUid(res.data)) //fait evoluer le uid
                 .catch((err) => console.log("No token"));
         };
         fetchToken();
-    }, [uid]); //[uid] à chaque foit que uid evolue tu rejoue App
+        if (uid) dispatch(getUser(uid));
+    }, [uid, dispatch]); //[uid] à chaque foit que uid evolue tu rejoue App
 
     return (
         <UidContext.Provider value={uid}>
             <BrowserRouter>
-                <Navigation />
+                <Navbar />
+                <LeftNav />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/profil" element={<Profil />} />

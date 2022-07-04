@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema(
         },
         picture: {
             type: String,
-            default: "./uploads/profil/random-user.png",
+            default: "./profil/random-user.png",
         },
         bio: {
             type: String,
@@ -57,7 +57,7 @@ userSchema.pre("save", async function (next) {
     next();
 });
 
-//fonction pour décrypter un mod de passe
+//fonction de verification du mot de passe en fonction du mail
 userSchema.statics.login = async function (email, password) {
     const user = await this.findOne({ email });
     if (user) {

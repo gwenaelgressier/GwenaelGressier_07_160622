@@ -1,16 +1,19 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const userRoutes = require("./routes/user.routes");
-const postRoutes = require("./routes/post.routes");
+const cors = require("cors");
+
 require("dotenv").config({ path: "./config/.env" });
 require("./config/db");
+
+const userRoutes = require("./routes/user.routes");
+const postRoutes = require("./routes/post.routes");
 const { checkUser, requireAuth } = require("./middleware/auth.middleware");
-const cors = require("cors");
 
 const app = express();
 
 const corsOptions = {
     origin: process.env.CLIENT_URL,
+    //doit être activée pour que l'appel utilise les cookies
     credentials: true,
     allowedHeaders: ["sessionId", "Content-Type"],
     exposedHeaders: ["sessionId"],
