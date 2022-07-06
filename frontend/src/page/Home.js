@@ -1,9 +1,10 @@
 import React from "react";
+import Thread from "../components/Thread";
 
 const Home = () => {
     return (
         <div>
-            <h1 className="h1-test">Hello Home</h1>
+            <Thread />
         </div>
     );
 };
