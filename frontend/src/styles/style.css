@@ -1,3 +1,8 @@
+/*****************************************************************************************
+*************************                                        *************************
+*************************              Main                      *************************
+*************************                                        *************************
+*****************************************************************************************/
 @font-face {
   font-family: "font-1";
   src: url(./assets/fonts/Lato-Light.ttf);
@@ -19,38 +24,33 @@
 
 ul {
   display: flex;
-  margin-left: 1rem;
 }
 ul li {
   margin-left: 2rem;
 }
 
+body {
+  background: #FFD7D7;
+}
+
 /*****************************************************************************************
 *************************                                        *************************
-*************************                NAVBAR                  *************************
+*************************              test                      *************************
+*************************                                        *************************
+*****************************************************************************************/
+.h1-test {
+  margin-left: 5rem;
+}
+
+/*****************************************************************************************
+*************************                                        *************************
+*************************             Navbar                     *************************
 *************************                                        *************************
 *****************************************************************************************/
 nav {
   width: 100%;
   height: 45px;
-  border-radius: 6px;
   background: #4E5166;
-}
-@media screen and (max-width: 1251px) {
-  nav {
-    padding: 0 20px;
-  }
-}
-nav::after {
-  content: "";
-  height: 45px;
-  width: 110%;
-  left: -20px;
-  top: 0;
-  position: absolute;
-  backdrop-filter: blur(3px);
-  background: rgba(255, 255, 255, 0.86);
-  z-index: -8;
 }
 nav .nav-container {
   display: flex;
@@ -66,36 +66,35 @@ nav .nav-container .logo {
   align-items: center;
 }
 nav .nav-container .logo h3 {
-  transform: translate(15px, 2px);
+  margin-left: 0.5em;
   font-size: 1.5rem;
   font-family: "font-3", sans-serif;
 }
 nav .nav-container .logo img {
-  height: 26px;
-  width: 26px;
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-left: 1em;
 }
 nav .nav-container ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 35%;
-  justify-content: space-between;
   font-size: 1.2rem;
 }
 nav .nav-container ul .welcome {
-  transform: translateY(2px);
+  display: none;
 }
-@media screen and (max-width: 590px) {
+@media screen and (min-width: 590px) {
   nav .nav-container ul .welcome {
-    display: none;
+    display: flex;
   }
 }
 nav .nav-container ul .welcome h5 {
   font-family: "font-3", sans-serif;
+  font-size: 1.4rem;
 }
 nav .nav-container ul li img {
-  height: 24px;
-  width: 24px;
+  width: 2rem;
   cursor: pointer;
   display: grid;
   align-items: center;
@@ -105,7 +104,93 @@ nav .nav-container ul li img {
 
 /*****************************************************************************************
 *************************                                        *************************
-*************************           PROFIL PAGE                  *************************
+*************************             leftNavbar                 *************************
+*************************                                        *************************
+*****************************************************************************************/
+.left-nav-container {
+  position: relative;
+}
+.left-nav-container .icons {
+  position: fixed;
+  z-index: 10;
+}
+@media screen and (max-width: 590px) {
+  .left-nav-container .icons {
+    margin: 2px 0 0 -9px;
+  }
+}
+.left-nav-container .icons .icons-bis {
+  position: absolute;
+  left: 10px;
+}
+.left-nav-container .icons .icons-bis a {
+  transition: 0.1s;
+  display: inline-block;
+}
+.left-nav-container .icons .icons-bis a:before {
+  transition: 0.15s ease;
+  transform: scale(0);
+  transform-origin: center;
+  z-index: -10;
+  content: "";
+  height: 45px;
+  width: 45px;
+  position: absolute;
+  background: #FD2D01;
+  border-radius: 50px;
+}
+.left-nav-container .icons .icons-bis a:hover {
+  transform: scale(1.02);
+}
+.left-nav-container .icons .icons-bis a:hover::before {
+  transform: scale(1);
+}
+@media screen and (max-width: 590px) {
+  .left-nav-container .icons .icons-bis a:hover::before {
+    background: #FD2D01;
+    height: 34px;
+    width: 34px;
+  }
+}
+.left-nav-container .icons .icons-bis a img {
+  width: 44px;
+}
+@media screen and (max-width: 590px) {
+  .left-nav-container .icons .icons-bis a img {
+    height: 34px;
+    width: 34px;
+  }
+}
+.left-nav-container .icons .icons-bis .active-left-nav {
+  position: relative;
+}
+.left-nav-container .icons .icons-bis .active-left-nav::after {
+  content: "";
+  height: 40px;
+  width: 5px;
+  position: absolute;
+  background: #FD2D01;
+  left: -7px;
+  bottom: 8px;
+  border-radius: 40px;
+  transform: scaleY(0);
+  animation: scale 1.5s ease forwards;
+}
+@keyframes scale {
+  to {
+    transform: scaleY(1);
+  }
+}
+@media screen and (max-width: 590px) {
+  .left-nav-container .icons .icons-bis .active-left-nav::after {
+    height: 33px;
+    left: -8px;
+  }
+}
+
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
 *************************                                        *************************
 *****************************************************************************************/
 .profil-page {
@@ -129,11 +214,11 @@ nav .nav-container ul li img {
   border: none;
   background: #FFD7D7;
   min-width: 490px;
-  width: 90%;
   text-align: center;
   margin: 0 auto;
   padding: 20px;
   border-radius: 20px;
+  height: 35rem;
 }
 @media screen and (max-width: 550px) {
   .profil-page .connection-form {
@@ -141,8 +226,9 @@ nav .nav-container ul li img {
   }
 }
 .profil-page .connection-form .form-container {
-  display: grid;
-  grid-template-columns: 30% 70%;
+  display: block;
+  margin: auto;
+  width: 20rem;
 }
 @media screen and (max-width: 550px) {
   .profil-page .connection-form .form-container {
@@ -377,7 +463,7 @@ nav .nav-container ul li img {
 }
 @keyframes modal {
   to {
-    transform: scale(1) translate(-50%);
+    transform: scale(1);
   }
 }
 .profil-page .popup-profil-container .modal .cross {
@@ -393,20 +479,7 @@ nav .nav-container ul li img {
 .profil-page .popup-profil-container .modal ul {
   margin: 20px 0 0;
   max-height: 500px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-.profil-page .popup-profil-container .modal ul::-webkit-scrollbar {
-  width: 2px;
-}
-.profil-page .popup-profil-container .modal ul::-webkit-scrollbar-track {
-  background: #FFD7D7;
-}
-.profil-page .popup-profil-container .modal ul::-webkit-scrollbar-thumb {
-  background: #FD2D01;
-}
-.profil-page .popup-profil-container .modal ul::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  display: block;
 }
 .profil-page .popup-profil-container .modal ul li {
   display: grid;
@@ -448,6 +521,60 @@ nav .nav-container ul li img {
 *************************                                        *************************
 *************************                                        *************************
 *****************************************************************************************/
-/*# sourceMappingURL=style.css.map */
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
 
 /*# sourceMappingURL=style.css.map */

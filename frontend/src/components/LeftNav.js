@@ -9,11 +9,11 @@ const LeftNav = () => {
                     <NavLink to="/">
                         <img src="./img/icons/home.svg" alt="home" />
                     </NavLink>
-                    <br />
+                    {/*<br />
                     <NavLink to="/trending">
                         <img src="./img/icons/rocket.svg" alt="trending" />
                     </NavLink>
-                    <br />
+    <br />*/}
                     <NavLink to="/profil">
                         <img src="./img/icons/user.svg" alt="profil" />
                     </NavLink>

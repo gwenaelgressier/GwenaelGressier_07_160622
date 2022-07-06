@@ -57,7 +57,13 @@ userSchema.pre("save", async function (next) {
     next();
 });
 
-//fonction de verification du mot de passe en fonction du mail
+/**
+ * fonction de verification du mot de passe en fonction du mail
+ *
+ * @param {*} email
+ * @param {*} password
+ * @returns
+ */
 userSchema.statics.login = async function (email, password) {
     const user = await this.findOne({ email });
     if (user) {
