@@ -14,7 +14,7 @@ const Profil = () => {
             ) : (
                 <div className="log-container">
                     <Log signin={false} signup={true} />
-                    <div className="log-container">
+                    <div className="images-container">
                         <img src={logo} alt="logo groupomania" />
                     </div>
                 </div>

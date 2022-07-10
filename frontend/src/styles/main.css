@@ -1,0 +1,600 @@
+/*****************************************************************************************
+*************************                                        *************************
+*************************              Main                      *************************
+*************************                                        *************************
+*****************************************************************************************/
+@font-face {
+  font-family: "font-1";
+  src: url(./assets/fonts/Lato-Light.ttf);
+}
+@font-face {
+  font-family: "font-2";
+  src: url(./assets/fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: "font-3";
+  src: url(./assets/fonts/Lato-Bold.ttf);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+ul {
+  display: flex;
+}
+ul li {
+  margin-left: 2rem;
+}
+
+body {
+  background: #FFD7D7;
+}
+
+/*****************************************************************************************
+*************************                                        *************************
+*************************              test                      *************************
+*************************                                        *************************
+*****************************************************************************************/
+.h1-test {
+  margin-left: 5rem;
+}
+
+/*****************************************************************************************
+*************************                                        *************************
+*************************             Navbar                     *************************
+*************************                                        *************************
+*****************************************************************************************/
+nav {
+  width: 100%;
+  height: 45px;
+  background: #4E5166;
+}
+nav .nav-container {
+  display: flex;
+  width: 100%;
+  max-width: 1190px;
+  margin: 0 auto;
+  justify-content: space-between;
+  height: 45px;
+  align-items: center;
+}
+nav .nav-container .logo {
+  display: flex;
+  align-items: center;
+}
+nav .nav-container .logo h3 {
+  margin-left: 0.5em;
+  font-size: 1.5rem;
+  font-family: "font-3", sans-serif;
+}
+nav .nav-container .logo img {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-left: 1em;
+}
+nav .nav-container ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+nav .nav-container ul .welcome {
+  display: none;
+}
+@media screen and (min-width: 590px) {
+  nav .nav-container ul .welcome {
+    display: flex;
+  }
+}
+nav .nav-container ul .welcome h5 {
+  font-family: "font-3", sans-serif;
+  font-size: 1.4rem;
+}
+nav .nav-container ul li img {
+  width: 2rem;
+  cursor: pointer;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+}
+
+/*****************************************************************************************
+*************************                                        *************************
+*************************             leftNavbar                 *************************
+*************************                                        *************************
+*****************************************************************************************/
+.left-nav-container {
+  position: relative;
+}
+.left-nav-container .icons {
+  position: fixed;
+  z-index: 10;
+}
+@media screen and (max-width: 590px) {
+  .left-nav-container .icons {
+    margin: 2px 0 0 -9px;
+  }
+}
+.left-nav-container .icons .icons-bis {
+  position: absolute;
+  left: 10px;
+}
+.left-nav-container .icons .icons-bis a {
+  transition: 0.1s;
+  display: inline-block;
+}
+.left-nav-container .icons .icons-bis a:before {
+  transition: 0.15s ease;
+  transform: scale(0);
+  transform-origin: center;
+  z-index: -10;
+  content: "";
+  height: 45px;
+  width: 45px;
+  position: absolute;
+  background: #FD2D01;
+  border-radius: 50px;
+}
+.left-nav-container .icons .icons-bis a:hover {
+  transform: scale(1.02);
+}
+.left-nav-container .icons .icons-bis a:hover::before {
+  transform: scale(1);
+}
+@media screen and (max-width: 590px) {
+  .left-nav-container .icons .icons-bis a:hover::before {
+    background: #FD2D01;
+    height: 34px;
+    width: 34px;
+  }
+}
+.left-nav-container .icons .icons-bis a img {
+  width: 44px;
+}
+@media screen and (max-width: 590px) {
+  .left-nav-container .icons .icons-bis a img {
+    height: 34px;
+    width: 34px;
+  }
+}
+.left-nav-container .icons .icons-bis .active-left-nav {
+  position: relative;
+}
+.left-nav-container .icons .icons-bis .active-left-nav::after {
+  content: "";
+  height: 40px;
+  width: 5px;
+  position: absolute;
+  background: #FD2D01;
+  left: -7px;
+  bottom: 8px;
+  border-radius: 40px;
+  transform: scaleY(0);
+  -webkit-animation: scale 1.5s ease forwards;
+          animation: scale 1.5s ease forwards;
+}
+@-webkit-keyframes scale {
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes scale {
+  to {
+    transform: scaleY(1);
+  }
+}
+@media screen and (max-width: 590px) {
+  .left-nav-container .icons .icons-bis .active-left-nav::after {
+    height: 33px;
+    left: -8px;
+  }
+}
+
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+.profil-page {
+  margin: 80px auto 0;
+  max-width: 1200px;
+}
+.profil-page .icons {
+  top: 55px;
+}
+.profil-page .log-container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+@media screen and (max-width: 885px) {
+  .profil-page .log-container {
+    grid-template-columns: 1fr;
+  }
+}
+.profil-page .connection-form {
+  border: none;
+  background: #FFD7D7;
+  min-width: 490px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 20px;
+  height: 35rem;
+}
+@media screen and (max-width: 550px) {
+  .profil-page .connection-form {
+    min-width: 200px;
+  }
+}
+.profil-page .connection-form .form-container {
+  display: block;
+  margin: auto;
+  width: 20rem;
+}
+@media screen and (max-width: 550px) {
+  .profil-page .connection-form .form-container {
+    grid-template-columns: 1fr;
+  }
+}
+.profil-page .connection-form .form-container ul li {
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 10px 20px;
+  transition: 0.2s;
+}
+@media screen and (max-width: 550px) {
+  .profil-page .connection-form .form-container ul li {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+.profil-page .connection-form .form-container ul .active-btn {
+  background: #FD2D01;
+}
+.profil-page .connection-form .form-container ul .active-btn:hover {
+  background: #FFD7D7;
+}
+.profil-page .connection-form .form-container ul li:not(.active-btn):hover {
+  transform: translateX(3px);
+}
+.profil-page .connection-form .form-container ul #login {
+  position: relative;
+}
+@media screen and (max-width: 550px) {
+  .profil-page .connection-form .form-container ul #login {
+    margin-bottom: 30px;
+  }
+  .profil-page .connection-form .form-container ul #login:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: #FFD7D7;
+  }
+}
+.profil-page .connection-form .form-container form input {
+  padding: 14px 20px;
+  margin: 0;
+  font-size: 1.2rem;
+  font-family: "font-2", sans-serif;
+  border-radius: 20px;
+}
+.profil-page .connection-form .form-container form input:focus {
+  box-shadow: 0 0 3px rgba(51, 51, 51, 0.2);
+}
+.profil-page .connection-form .form-container form a {
+  color: rgb(62, 62, 214);
+}
+.profil-page h1 {
+  text-align: center;
+  margin: 10px 0 6px;
+}
+.profil-page .img-container {
+  display: grid;
+  align-items: center;
+  height: 100%;
+}
+.profil-page .img-container img {
+  height: 280px;
+}
+@media screen and (max-width: 1050px) {
+  .profil-page .img-container img {
+    height: 220px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .profil-page .img-container img {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 885px) {
+  .profil-page .img-container img {
+    display: none;
+  }
+}
+.profil-page .update-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+@media screen and (max-width: 700px) {
+  .profil-page .update-container {
+    grid-template-columns: 1fr;
+  }
+}
+.profil-page .update-container > div {
+  background: #FFD7D7;
+  border-radius: 20px;
+  padding: 25px;
+  margin: 20px 10px;
+}
+@media screen and (max-width: 700px) {
+  .profil-page .update-container > div {
+    margin: 10px 10px;
+  }
+}
+.profil-page .update-container .left-part {
+  text-align: center;
+}
+.profil-page .update-container .left-part h3 {
+  margin-bottom: 12px;
+}
+.profil-page .update-container .left-part img {
+  height: 180px;
+  width: 180px;
+  border-radius: 46px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 30px;
+  box-shadow: 0 0 6px rgba(51, 51, 51, 0.363);
+}
+.profil-page .update-container .left-part form {
+  position: relative;
+}
+.profil-page .update-container .left-part form label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 270px;
+  background: #4E5166;
+  color: #FFD7D7;
+  border-radius: 20px;
+  display: inline-block;
+  padding: 9px 0;
+  transition: 0.2s;
+  z-index: 10;
+  cursor: pointer;
+}
+.profil-page .update-container .left-part form input[type=file] {
+  position: absolute;
+  opacity: 1;
+  transform: translate(-3px, -50%);
+  cursor: pointer;
+  padding: 10px 20px;
+}
+@media screen and (max-width: 1121px) {
+  .profil-page .update-container .left-part form input[type=file] {
+    opacity: 0;
+  }
+}
+.profil-page .update-container .left-part form input[type=submit] {
+  margin-top: 10px;
+  border-radius: 20px;
+}
+.profil-page .update-container .left-part form input[type=submit]:hover {
+  letter-spacing: 1px;
+}
+.profil-page .update-container .left-part p {
+  color: red;
+  font-family: "font-3", sans-serif;
+  margin-top: 6px;
+}
+.profil-page .update-container .right-part {
+  text-align: center;
+  padding: 20px 40px;
+}
+.profil-page .update-container .right-part h3 {
+  margin-bottom: 12px;
+}
+.profil-page .update-container .right-part p,
+.profil-page .update-container .right-part textarea {
+  min-height: 80px;
+  border: 1px solid #FD2D01;
+  border-radius: 20px 20px 6px 20px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+}
+.profil-page .update-container .right-part textarea {
+  width: 100%;
+  margin-bottom: -6px;
+  font-size: 1.2rem;
+}
+.profil-page .update-container .right-part button {
+  margin: 5px 0;
+  float: right;
+}
+.profil-page .update-container .right-part h4 {
+  margin: 60px 0 10px;
+}
+.profil-page .update-container .right-part h5 {
+  background: #FD2D01;
+  color: #FFD7D7;
+  font-family: "font-1", sans-serif;
+  margin: 20px 0;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 20px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.profil-page .update-container .right-part h5:hover {
+  filter: brightness(110%);
+  transform: translateX(2px);
+}
+.profil-page .popup-profil-container {
+  z-index: 100;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  position: fixed;
+  -webkit-animation: popup 1s forwards;
+          animation: popup 1s forwards;
+}
+@-webkit-keyframes popup {
+  to {
+    -webkit-backdrop-filter: blur(2px);
+            backdrop-filter: blur(2px);
+  }
+}
+@keyframes popup {
+  to {
+    -webkit-backdrop-filter: blur(2px);
+            backdrop-filter: blur(2px);
+  }
+}
+.profil-page .popup-profil-container .modal {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-100%);
+  background: #FFD7D7;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 0 2px rgba(131, 130, 130, 0.356);
+  overflow: auto;
+  transform: scaleY(0);
+  transform-origin: center;
+  -webkit-animation: modal 0.5s forwards;
+          animation: modal 0.5s forwards;
+}
+.profil-page .popup-profil-container .modal h3 {
+  min-width: 200px;
+}
+@-webkit-keyframes modal {
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes modal {
+  to {
+    transform: scale(1);
+  }
+}
+.profil-page .popup-profil-container .modal .cross {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+.profil-page .popup-profil-container .modal .cross:hover {
+  transform: scale(1.07);
+}
+.profil-page .popup-profil-container .modal ul {
+  margin: 20px 0 0;
+  max-height: 500px;
+  display: block;
+}
+.profil-page .popup-profil-container .modal ul li {
+  display: grid;
+  grid-template-columns: 64px 1fr 114px;
+  align-items: center;
+  margin: 10px 0;
+}
+.profil-page .popup-profil-container .modal ul li img {
+  height: 50px;
+  width: 50px;
+  border-radius: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0 0 2px rgba(51, 51, 51, 0.376);
+}
+.profil-page .popup-profil-container .modal ul li h4 {
+  text-align: left;
+  min-width: 210px;
+}
+.profil-page .popup-profil-container .modal ul li .follow-handler {
+  text-align: left;
+}
+.profil-page .popup-profil-container .modal ul li .follow-handler button {
+  background: #FFD7D7;
+  border-radius: 20px;
+  margin-right: 6px;
+}
+.profil-page .popup-profil-container .modal ul li .follow-handler button:hover {
+  color: #4E5166;
+  transform: translateX(2px);
+}
+
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************/
+/*****************************************************************************************
+*************************                                        *************************
+*************************                                        *************************
+*************************                                        *************************
+*****************************************************************************************//*# sourceMappingURL=main.css.map */

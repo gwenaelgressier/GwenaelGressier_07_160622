@@ -8,25 +8,29 @@ const ObjectID = require("mongoose").Types.ObjectId;
 //CRUD : Create
 module.exports.createPost = async (req, res) => {
     let fileName;
-
     if (req.file) {
         try {
             //verification du format du fichier (s'assurer que c'est une image, et que son format est supporté)
             if (
                 req.file.mimetype !== "image/jpg" &&
                 req.file.mimetype !== "image/png" &&
-                req.file.mimetype !== "image/jpeg"
+                req.file.mimetype !== "image/jpeg" &&
+                req.file.mimetype !== "image/gif"
             )
                 throw Error("invalid file");
 
             //verif du poids du fichier
-            if (req.file.size > 500000) throw Error("max size");
+            if (req.file.size > 5000000) throw Error("max size");
         } catch (err) {
             const errors = uploadErrors(err);
             return res.status(201).json({ errors });
         }
         //nouveau nom du fichier
-        fileName = req.body.posterId + Date.now() + ".jpg";
+        const extension = req.file.mimetype.split("/");
+        console.log(extension);
+        const extention2 = extension.slice(-1).pop();
+        console.log(extention2);
+        fileName = req.body.posterId + Date.now() + "." + extention2;
 
         //stockage de la nouvelle image.
         fs.writeFile(
@@ -42,7 +46,6 @@ module.exports.createPost = async (req, res) => {
         posterId: req.body.posterId,
         message: req.body.message,
         picture: req.file ? `./uploads/posts/` + fileName : "",
-        video: req.body.video,
         likers: [],
         comments: [],
     });

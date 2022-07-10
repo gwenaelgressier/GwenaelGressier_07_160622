@@ -8,7 +8,8 @@ module.exports.uploadProfil = async (req, res) => {
         if (
             req.file.mimetype !== "image/jpg" &&
             req.file.mimetype !== "image/png" &&
-            req.file.mimetype !== "image/jpeg"
+            req.file.mimetype !== "image/jpeg" &&
+            req.file.mimetype !== "image/gif"
         )
             throw Error("invalid file");
 
@@ -17,8 +18,8 @@ module.exports.uploadProfil = async (req, res) => {
         const errors = uploadErrors(err);
         return res.status(201).json({ errors });
     }
-
-    const fileName = req.body.name + ".jpg"; //nouveau nom du fichier
+    const extension = req.file.mimetype;
+    const fileName = req.body.name + "." + extension; //nouveau nom du fichier
 
     //stockage de la nouvelle image.
     fs.writeFile(

@@ -96,7 +96,7 @@ const UpdateProfil = () => {
                                                 <div className="follow-handler">
                                                     <FollowHandler
                                                         idToFollow={user._id} //user._id passer en props
-                                                        type={"suggestion"}
+                                                        type={"suggestion"} //envoy le type pour changer l'afichange de mon followHandler
                                                     />
                                                 </div>
                                             </li>
