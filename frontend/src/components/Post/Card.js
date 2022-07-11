@@ -44,6 +44,11 @@ const Card = ({ post }) => {
                                     })
                                     .join("")
                             }
+                            onError={({ currentTarget }) => {
+                                currentTarget.onerror = null; // prevents looping
+                                currentTarget.src =
+                                    "./uploads/profil/random-user.png";
+                            }}
                             alt="poster-pic"
                         />
                     </div>

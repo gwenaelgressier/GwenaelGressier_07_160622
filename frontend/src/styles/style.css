@@ -371,10 +371,16 @@ nav .nav-container ul li img {
   overflow: hidden;
   max-width: 247px;
   text-overflow: ellipsis;
+  margin-top: -18px;
 }
-@media screen and (max-width: 440px) {
+@media (min-width: 768px) {
   .card-container .card-right p {
-    margin-top: -18px;
+    max-width: 510px;
+  }
+}
+@media (min-width: 992px) {
+  .card-container .card-right p {
+    max-width: 800px;
   }
 }
 .card-container .card-right .update-post textarea {
@@ -640,11 +646,6 @@ nav .nav-container ul li img {
 
 /*****************************************************************************************
 *************************                                        *************************
-*************************           connectionform               *************************
-*************************                                        *************************
-*****************************************************************************************/
-/*****************************************************************************************
-*************************                                        *************************
 *************************            profil                      *************************
 *************************                                        *************************
 *****************************************************************************************/
@@ -782,7 +783,7 @@ nav .nav-container ul li img {
 .profil-page .update-container .left-part form input[type=file] {
   position: absolute;
   opacity: 1;
-  transform: translate(-97px, -50%);
+  transform: translate(-98px, -50%);
   cursor: pointer;
   padding: 10px 20px;
 }
