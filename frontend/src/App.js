@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./page/Home";
 import Profil from "./page/Profil";
-import Trending from "./page/Trending";
 import { UidContext } from "./components/AppContext";
 import axios from "axios";
 import Navbar from "./components/Navbar";
@@ -36,7 +35,6 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/profil" element={<Profil />} />
-                    <Route path="/trending" element={<Trending />} />
                     {/*path ="*"fonctionne si jamais l'url ne corespond à rien déclaré au dessus */}
                     <Route path="*" element={<Home />} />
                 </Routes>

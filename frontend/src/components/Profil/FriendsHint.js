@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { isEmpty } from "../Utils";
-import FollowHandler from "./FollowHandler";
 
 const FriendsHint = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -62,10 +61,6 @@ const FriendsHint = () => {
                                                 alt="user-pic"
                                             />
                                             <p>{usersData[i].pseudo}</p>
-                                            <FollowHandler
-                                                idToFollow={usersData[i]._id}
-                                                type={"suggestion"}
-                                            />
                                         </li>
                                     );
                                 }
