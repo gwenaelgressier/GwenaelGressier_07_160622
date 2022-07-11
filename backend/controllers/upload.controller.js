@@ -8,17 +8,17 @@ module.exports.uploadProfil = async (req, res) => {
         if (
             req.file.mimetype !== "image/jpg" &&
             req.file.mimetype !== "image/png" &&
-            req.file.mimetype !== "image/jpeg" &&
-            req.file.mimetype !== "image/gif"
+            req.file.mimetype !== "image/jpeg"
         )
             throw Error("invalid file");
 
-        if (req.file.size > 500000) throw Error("max size"); //verif du poids du fichier
+        if (req.file.size > 5000000) throw Error("max size"); //verif du poids du fichier
     } catch (err) {
         const errors = uploadErrors(err);
         return res.status(201).json({ errors });
     }
-    const extension = req.file.mimetype;
+    const images = req.file.mimetype.split("/");
+    const extension = images.slice(-1).pop();
     const fileName = req.body.name + "." + extension; //nouveau nom du fichier
 
     //stockage de la nouvelle image.

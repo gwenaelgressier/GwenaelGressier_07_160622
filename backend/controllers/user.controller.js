@@ -15,7 +15,8 @@ module.exports.userInfo = (req, res) => {
         return res.status(400).send("ID unknown : " + req.params.id);
 
     UserModel.findById(req.params.id, (err, docs) => {
-        //Si l'id de la requête est valide je récupère les données de l'utilisateur concerné, sauf le mot de passe, que je dois veiller à ne jamais envoyer dans le front.
+        /*Si l'id de la requête est valide je récupère les données de l'utilisateur concerné,
+         sauf le mot de passe, que je dois veiller à ne jamais envoyer dans le front.*/
         if (!err) res.send(docs);
         else console.log("ID unknown : " + err);
     }).select("-password");
