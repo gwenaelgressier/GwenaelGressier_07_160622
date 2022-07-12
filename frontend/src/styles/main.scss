@@ -1055,6 +1055,10 @@ nav {
             font-size: 1.1rem;
             max-width: 230px;
 
+            @media (min-width: $desktop) {
+              max-width: 830px;
+            }
+
           }
           img {
             width: 100%;

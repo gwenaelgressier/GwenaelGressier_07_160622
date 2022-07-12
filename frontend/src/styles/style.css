@@ -957,6 +957,11 @@ nav .nav-container ul li img {
   font-size: 1.1rem;
   max-width: 230px;
 }
+@media (min-width: 992px) {
+  .post-container .post-form .card-container .card-right .content p {
+    max-width: 830px;
+  }
+}
 .post-container .post-form .card-container .card-right .content img {
   width: 100%;
   border-radius: 6px;
