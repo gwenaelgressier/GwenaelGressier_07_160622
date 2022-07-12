@@ -24,6 +24,12 @@ export const dateParser = (num) => {
     return date.toString();
 };
 
+/**
+ *permet d'avoir la date au format voulue
+ *
+ * @param {*} num
+ * @returns
+ */
 export const timestampParser = (num) => {
     let options = {
         hour: "2-digit",

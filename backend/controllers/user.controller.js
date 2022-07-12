@@ -62,7 +62,7 @@ module.exports.deleteUser = async (req, res) => {
     }
 
     try {
-        await UserModel.remove({ _id: req.params.id }).exec();
+        await UserModel.deleteOne({ _id: req.params.id }).exec();
         res.status(200).json({ message: "Utilisateur Supprimé." });
     } catch (err) {
         return res.status(500).json({ message: err });
