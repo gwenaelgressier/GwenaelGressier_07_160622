@@ -82,7 +82,17 @@ const UpdateProfil = () => {
                         )}
                     </div>
                     <h4>Membre depuis le : {dateParser(userData.createdAt)}</h4>
-                    <h5 onClick={() => deleteUser(userData._id)}>
+                    <h5
+                        onClick={() => {
+                            if (
+                                window.confirm(
+                                    "Voulez-vous supprimer votre profil ?"
+                                )
+                            ) {
+                                deleteUser(userData._id);
+                            }
+                        }}
+                    >
                         suppression du compte
                     </h5>
                 </div>

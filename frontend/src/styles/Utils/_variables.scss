@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "font-1";
+    src: url(./assets/fonts/Lato-Light.ttf);
+  }
+  @font-face {
+    font-family: "font-2";
+    src: url(./assets/fonts/Lato-Regular.ttf);
+  }
+  @font-face {
+    font-family: "font-3";
+    src: url(./assets/fonts/Lato-Bold.ttf);
+  }
+  
+  $font-1: "font-1", sans-serif;
+  $font-2: "font-2", sans-serif;
+  $font-3: "font-3", sans-serif;
+  
+  $color-1: #FD2D01;
+  $color-2: #FFD7D7;
+  $color-3: #4E5166;
+  $color-white: white;
+  $color-black: black;
+  $color-4:blue;
+  
+  $tablette: 768px;
+  $desktop: 992px;
+  $max-width: 1024px;
