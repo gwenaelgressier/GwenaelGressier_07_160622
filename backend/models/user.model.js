@@ -2,7 +2,9 @@ const mongoose = require("mongoose");
 const { isEmail } = require("validator");
 const bcrypt = require("bcrypt");
 
-//Schema de création d'une fiche utilisateur.
+/**
+ * Schema de création d'une fiche utilisateur.
+ */
 const userSchema = new mongoose.Schema(
     {
         pseudo: {

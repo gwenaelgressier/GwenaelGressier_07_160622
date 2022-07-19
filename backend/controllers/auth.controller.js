@@ -5,12 +5,24 @@ const { signInErrors } = require("../utils/errors.utils");
 
 //temps en millisecondes: 1000ms(=1seconde) * 60s(=1minute) * 60min(=1heure) * 24heures. Le token sera donc valable durant 24h
 const maxAge = 1000 * 60 * 60 * 24;
+/**
+ * fonction qui permet de creer un token
+ *
+ * @param {*} id
+ * @returns
+ */
 const createToken = (id) => {
     return jwt.sign({ id }, process.env.TOKEN_SECRET, {
         expiresIn: maxAge,
     });
 };
 
+/**
+ * fonction qui permet de créer un nouvel utilisateur
+ *
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.signUp = async (req, res) => {
     const { pseudo, email, password } = req.body;
 
@@ -25,6 +37,12 @@ module.exports.signUp = async (req, res) => {
     }
 };
 
+/**
+ * fonction qui permet de se connecter
+ *
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.signIn = async (req, res) => {
     const { email, password } = req.body;
 
@@ -40,6 +58,12 @@ module.exports.signIn = async (req, res) => {
     }
 };
 
+/**
+ * fonction qui permet de se déconnecter
+ *
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.logout = async (req, res) => {
     //on attribue un cookie vide qui va vivre 1ms, puis rediriger l'utilisateur
     res.cookie("jwt", "", { maxAge: 1 });

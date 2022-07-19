@@ -46,7 +46,7 @@ const EditDeleteComment = ({ comment, postId }) => {
                     className="edit-comment-form"
                 >
                     <label htmlFor="text" onClick={() => setEdit(!edit)}>
-                        Editer
+                        Retour
                     </label>
                     <br />
                     <input

@@ -1,7 +1,6 @@
 
 .card-container {
     display: grid;
-    grid-template-columns: 66px 1fr;
     border: 2px solid $color-1;
     margin: 10px;
     padding: 16px;
@@ -9,9 +8,10 @@
     margin: 8px auto;
     position: relative;
     min-height: 100px;
-  
-    @media screen and(max-width: 590px) {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
+
+    @media (min-width: $tablette) {
+      grid-template-columns: 66px 1fr;
     }
   
     .fa-spinner {
@@ -23,103 +23,88 @@
     }
   
     .card-left {
+      position: absolute;
+      transform: translate(17px, 18px);
+
       img {
-        height: 52px;
-        width: 52px;
-        border-radius: 20px;
         box-shadow: 1px 1px 3px rgba(51, 51, 51, 0.192);
         object-fit: cover;
-  
-        @media screen and(max-width: 590px) {
-          height: 40px;
-          width: 40px;
-          margin-left: 18px;
-          border-radius: 14px;
+        height: 40px;
+        width: 40px;
+        margin-left: 18px;
+        border-radius: 14px;
+
+        @media (min-width: $tablette) {
+          height: 52px;
+          width: 52px;
+          margin-left: 0px;
+          border-radius: 20px;
         }
       }
-      @media screen and(max-width: 590px) {
-        position: absolute;
-        transform: translate(17px, 18px);
+      @media (min-width: $tablette) {
+        position: relative;
+        transform: translate(0px, 0px);
+  
       }
     }
   
     .card-right {
-      
-      @media screen and(max-width: 590px) {
-        margin-left: 18px;
+      margin-left: 18px;
+
+      @media (min-width:$tablette) {
+        margin-left: 0px;
       }
   
       .card-image{
   
-        width: 100%;
   
         @media(min-width: $tablette) {
           width: 50%;
           display: block;
           margin: 0 auto;
         }
+        img{
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
       }
   
       .card-header {
         display: flex;
         justify-content: space-between;
-        margin: 2px 0 4px;
+        margin: 12px 0 14px;
         min-height: 35px;
-  
-        @media screen and(max-width: 590px) {
-          margin: 12px 0 14px;
-        }
-  
-        @media screen and(max-width: 440px) {
-          flex-direction: column;
+        flex-direction: column;
+
+        @media (min-width: $tablette) {
+          flex-direction: row;
+          margin: 2px 0 4px;
+
         }
   
         .pseudo {
           display: flex;
-  
-          @media screen and(max-width: 590px) {
-            margin-left: 52px;
+          transform: translateY(-18px);
+          margin-left: 52px;
+
+          @media (min-width: $tablette) {
+            transform: translateY(0px);
+            margin-left: 0px;
+
           }
-          @media screen and(max-width: 440px) {
-            transform: translateY(-18px);
-          }
   
-          span {
-            transform: translate(0px, -5px);
-  
-            @media screen and(max-width: 440px) {
-              margin: 0px 0 -10px;
-              padding: 0;
-            }
-  
-            img {
-              padding: 5px;
-              cursor: pointer;
-              transition: 0.15s;
-              box-shadow: none;
-              height: 28px;
-              width: 28px;
-  
-              &:hover {
-                transform: scale(1.2) translate(0px, 0px);
-              }
-            }
-  
-            .fas {
-              color: $color-1;
-            }
-            .far {
-              color: $color-2;
-            }
-          }
+
         }
   
         span {
           font-style: italic;
           font-family: $font-1;
           font-size: 0.8rem;
-          @media screen and(max-width: 440px) {
-            transform: translate(50px, -20px);
+          transform: translate(50px, -20px);
+
+          @media (min-width: $tablette) {
+            transform: translate(0);
           }
         }
       }
@@ -237,23 +222,25 @@
   
   
         img {
-          height: 40px;
-          width: 40px;
+          height: 37px;
+          width: 37px;
+
           border-radius: 14px;
           box-shadow: 1px 1px 3px rgba(51, 51, 51, 0.192);
           object-fit: cover;
   
-          @media screen and(max-width: 440px) {
-            height: 37px;
-            width: 37px;
+          @media (min-width: $tablette) {
+            height: 40px;
+            width: 40px;
           }
         }
         .comment-header {
           display: flex;
           justify-content: space-between;
-  
-          @media screen and(max-width: 440px) {
-            flex-direction: column;
+          flex-direction: column;
+
+          @media (min-width: $tablette) {
+            flex-direction: row;
           }
   
           .pseudo {

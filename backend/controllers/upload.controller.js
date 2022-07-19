@@ -2,6 +2,13 @@ const UserModel = require("../models/user.model");
 const fs = require("fs");
 const { uploadErrors } = require("../utils/errors.utils"); //recup detail erreur dans utils/errors.utils.js
 
+/**
+ * fonction pour modifier mon image de profil
+ *
+ * @param {*} req
+ * @param {*} res
+ * @returns
+ */
 module.exports.uploadProfil = async (req, res) => {
     try {
         //verification du format du fichier (s'assurer que c'est une image)

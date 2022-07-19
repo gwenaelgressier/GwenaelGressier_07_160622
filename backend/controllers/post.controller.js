@@ -6,6 +6,14 @@ const { uploadErrors } = require("../utils/errors.utils");
 const ObjectID = require("mongoose").Types.ObjectId;
 
 //CRUD : Create
+
+/**
+ * fonction pour créer un post
+ *
+ * @param {*} req
+ * @param {*} res
+ * @returns
+ */
 module.exports.createPost = async (req, res) => {
     let fileName;
     if (req.file) {
@@ -58,6 +66,13 @@ module.exports.createPost = async (req, res) => {
 };
 
 //CRUD : Read
+
+/**
+ * fonction pour récupérer les posts
+ *
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.readPost = (req, res) => {
     PostModel.find((err, docs) => {
         if (!err) res.send(docs);
@@ -66,6 +81,14 @@ module.exports.readPost = (req, res) => {
 };
 
 //CRUD : Update
+
+/**
+ * fonction pour mettre à jour un post
+ *
+ * @param {*} req
+ * @param {*} res
+ * @returns
+ */
 module.exports.updatePost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
         return res.status(400).send("ID unknown : " + req.params.id);
@@ -86,6 +109,14 @@ module.exports.updatePost = (req, res) => {
 };
 
 //CRUD : Delete
+
+/**
+ * fonction pour supprimer un post
+ *
+ * @param {*} req
+ * @param {*} res
+ * @returns
+ */
 module.exports.deletePost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
         //
@@ -99,7 +130,13 @@ module.exports.deletePost = (req, res) => {
     });
 };
 
-//like-post
+/**
+ * fonction pour liker un post
+ *
+ * @param {*} req
+ * @param {*} res
+ * @returns
+ */
 module.exports.likePost = async (req, res) => {
     if (!ObjectID.isValid(req.params.id))
         return res.status(400).send("ID unknown : " + req.params.id);
@@ -124,7 +161,13 @@ module.exports.likePost = async (req, res) => {
     }
 };
 
-//unlike-post
+/**
+ * fonction pour unlike un post
+ *
+ * @param {*} req
+ * @param {*} res
+ * @returns
+ */
 module.exports.unlikePost = async (req, res) => {
     if (!ObjectID.isValid(req.params.id))
         //
@@ -148,6 +191,13 @@ module.exports.unlikePost = async (req, res) => {
     }
 };
 
+/**
+ * fonction de creation de comments
+ *
+ * @param {*} req
+ * @param {*} res
+ * @returns
+ */
 module.exports.commentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
         return res.status(400).send("ID unknown : " + req.params.id);
@@ -174,6 +224,13 @@ module.exports.commentPost = (req, res) => {
     }
 };
 
+/**
+ * fonction dde modification de comments
+ *
+ * @param {*} req
+ * @param {*} res
+ * @returns
+ */
 module.exports.editCommentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
         return res.status(400).send("ID unknown : " + req.params.id);
@@ -197,6 +254,13 @@ module.exports.editCommentPost = (req, res) => {
     }
 };
 
+/**
+ * fonction de supression de comments
+ *
+ * @param {*} req
+ * @param {*} res
+ * @returns
+ */
 module.exports.deleteCommentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
         return res.status(400).send("ID unknown : " + req.params.id);

@@ -12,23 +12,6 @@
       color: $color-3;
     }
   
-    .data {
-      position: absolute;
-      right: 42px;
-      text-align: right;
-  
-      @media screen and(max-width: 420px) {
-        right: 10px;
-      }
-      @media screen and(max-width: 380px) {
-        display: none;
-      }
-  
-      span {
-        font-weight: bold;
-      }
-    }
-  
     .user-info {
       margin-bottom: 10px;
       img {
@@ -60,45 +43,42 @@
         .card-left {
           text-align: left;
           img {
-            @media screen and(max-width: 590px) {
-              margin-left: 0;
+            margin-left: 0;
+
+            @media (min-width: $tablette) {
+              margin-left: 18px;
             }
           }
         }
         .card-right {
-          @media screen and(max-width: 590px) {
-            margin-left: 0;
+          margin-left: 0;
+
+          @media (min-width: $tablette) {
+            margin-left: 18px;
           }
           .card-header {
-            
-            @media screen and(max-width: 632px) {
-              flex-direction: column;
-            }
-            @media screen and(max-width: 590px) {
-              margin: 0;
-            }
             .pseudo {
-              @media screen and(max-width: 440px) {
-                transform: translateY(-8px);
+              transform: translateY(-8px);
+
+              @media(min-width: $tablette) {
+                transform: translateY(0px);
               }
             }
             span {
               font-size: 0.7rem;
-              @media screen and(max-width: 632px) {
-                position: absolute;
-                top: 40px;
-              }
-              @media screen and(max-width: 590px) {
-                left: 68px;
-              }
-              @media screen and(max-width: 440px) {
-                left: 14px;
-                top: 60px;
+              position: absolute;
+              left: 14px;
+              top: 60px;
+                @media (min-width: $tablette) {
+                position:relative;
+                left:0px;
+                top:0px;
               }
             }
           }
           .content {
             padding: 6px 0;
+            margin-top: 20px;
             p {
               text-align: left;
               margin: 2px 0 6px;
@@ -115,8 +95,8 @@
               border-radius: 6px;
               margin-top: 12px;
             }
-            @media screen and(max-width: 632px) {
-              margin-top: 20px;
+            @media (min-width: $tablette) {
+              margin-top: 0px;
             }
           }
         }
@@ -186,9 +166,11 @@
             }
           }
           button {
-            @media screen and(max-width: 460px) {
-              font-size: 0.8rem;
-              padding: 8px;
+            font-size: 0.8rem;
+            padding: 8px;
+            @media(min-width: $tablette) {
+              font-size: 1.1rem;
+              padding: 10px 20px;
             }
           }
         }
