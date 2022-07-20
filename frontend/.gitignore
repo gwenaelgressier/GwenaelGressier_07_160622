@@ -24,3 +24,5 @@ yarn-error.log*
 
 .env
 /public/uploads
+!/public/uploads/whoami.txt
+!/public/profil/whoami.txt
