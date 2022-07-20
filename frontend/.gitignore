@@ -23,7 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 .env
-!/public/uploads/posts/whoami.txt
-!/public/uploads/profil/whoami.txt
 /public/uploads/posts/*
+!/public/uploads/posts/whoami.txt
+
 /public/uploads/profil/*
+!/public/uploads/profil/whoami.txt
