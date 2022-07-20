@@ -67,5 +67,5 @@ module.exports.signIn = async (req, res) => {
 module.exports.logout = async (req, res) => {
     //on attribue un cookie vide qui va vivre 1ms, puis rediriger l'utilisateur
     res.cookie("jwt", "", { maxAge: 1 });
-    res.redirect("/");
+    res.redirect("/api/post");
 };
