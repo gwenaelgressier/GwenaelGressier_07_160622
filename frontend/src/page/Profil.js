@@ -6,21 +6,21 @@ import UpdateProfil from "../components/Profil/UpdateProfil";
 
 const Profil = () => {
     const uid = useContext(UidContext);
-    return (
-        <div className="profil-page">
-            {/*si j'ai un token et que je reclick sur profil aller sur upate page*/}
-            {uid ? (
-                <UpdateProfil />
-            ) : (
-                <div className="log-container">
-                    <Log signin={false} signup={true} />
-                    <div className="images-container">
-                        <img src={logo} alt="logo groupomania" />
-                    </div>
+
+    const showlogin = () => {
+        if (uid !== "") {
+            return <UpdateProfil />;
+        }
+        return (
+            <div className="log-container">
+                <Log signin={false} signup={true} />
+                <div className="images-container">
+                    <img src={logo} alt="logo groupomania" />
                 </div>
-            )}
-        </div>
-    );
+            </div>
+        );
+    };
+    return <div className="profil-page">{showlogin()}</div>;
 };
 
 export default Profil;

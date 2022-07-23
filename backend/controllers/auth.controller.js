@@ -5,6 +5,7 @@ const { signInErrors } = require("../utils/errors.utils");
 
 //temps en millisecondes: 1000ms(=1seconde) * 60s(=1minute) * 60min(=1heure) * 24heures. Le token sera donc valable durant 24h
 const maxAge = 1000 * 60 * 60 * 24;
+
 /**
  * fonction qui permet de creer un token
  *

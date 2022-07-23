@@ -7,9 +7,9 @@ const Logout = () => {
             method: "get",
             url: `${process.env.REACT_APP_API_URL}api/user/logout`,
             withCredentials: true,
-        })
-            .then(() => (window.location = "/"))
-            .catch((err) => console.log(err));
+        }).catch((err) => console.log(err));
+
+        window.location = "/";
     };
 
     return (

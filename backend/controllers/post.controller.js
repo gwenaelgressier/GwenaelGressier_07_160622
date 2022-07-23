@@ -18,8 +18,6 @@ module.exports.createPost = async (req, res) => {
     let fileName;
     if (req.file) {
         try {
-            /*verification du format du fichier 
-            (s'assurer que c'est une image, et que son format est supporté)*/
             if (
                 req.file.mimetype !== "image/jpg" &&
                 req.file.mimetype !== "image/png" &&
@@ -66,7 +64,6 @@ module.exports.createPost = async (req, res) => {
 };
 
 //CRUD : Read
-
 /**
  * fonction pour récupérer les posts
  *
@@ -81,7 +78,6 @@ module.exports.readPost = (req, res) => {
 };
 
 //CRUD : Update
-
 /**
  * fonction pour mettre à jour un post
  *
@@ -109,7 +105,6 @@ module.exports.updatePost = (req, res) => {
 };
 
 //CRUD : Delete
-
 /**
  * fonction pour supprimer un post
  *
