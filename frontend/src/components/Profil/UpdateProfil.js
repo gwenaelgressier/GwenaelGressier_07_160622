@@ -6,6 +6,7 @@ import axios from "axios";
 
 const UpdateProfil = () => {
     const userData = useSelector((state) => state.userReducer);
+    const error = useSelector((state) => state.errorReducer.userError);
 
     const deleteUser = async () => {
         await axios({
@@ -34,6 +35,8 @@ const UpdateProfil = () => {
                     <h3>Photo de profil</h3>
                     <img src={userData.picture} alt="user-pic" />
                     <UploadImg />
+                    <p>{error.maxSize}</p>
+                    <p>{error.format}</p>
                 </div>
                 <div className="right-part">
                     <h4>Membre depuis le : {dateParser(userData.createdAt)}</h4>
