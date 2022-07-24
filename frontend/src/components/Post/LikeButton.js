@@ -29,7 +29,7 @@ const LikeButton = ({ post }) => {
     return (
         <div className="like-container">
             {/*gere le message ddu popUp si nous ne somme pas connecter*/}
-            {uid === null && (
+            {uid === "" && (
                 <Popup
                     trigger={<img src="./img/icons/heart.svg" alt="like" />}
                     position={["bottom center"]}
