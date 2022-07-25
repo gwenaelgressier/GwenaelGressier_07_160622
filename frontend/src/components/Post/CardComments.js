@@ -46,7 +46,11 @@ const CardComments = ({ post }) => {
                                         })
                                         .join("")
                                 }
-                                alt="commenter-pic"
+                                onError={({ currentTarget }) => {
+                                    currentTarget.onerror = null; // prevents looping
+                                    currentTarget.src = "./img/random-user.png";
+                                }}
+                                alt="poster-pic"
                             />
                         </div>
                         <div className="right-part">
