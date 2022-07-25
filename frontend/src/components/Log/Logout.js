@@ -2,7 +2,8 @@ import React from "react";
 import axios from "axios";
 
 const Logout = () => {
-    const logout = async () => {
+    const logout = async (e) => {
+        e.preventDefault();
         await axios({
             method: "get",
             url: `${process.env.REACT_APP_API_URL}api/user/logout`,
