@@ -310,7 +310,6 @@
             input[type="text"] {
               color: $color-3;
               margin: 4px 0;
-              background: $color-2;
               font-size: 1.15rem;
               padding: 16px;
               width: 100%;
@@ -330,7 +329,7 @@
                 cursor: pointer;
   
                 &:hover {
-                  background: $color-2;
+                  transform: scale(1.05);
                 }
   
                 img {

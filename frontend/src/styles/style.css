@@ -505,7 +505,6 @@ nav .nav-container ul li img {
 .card-container .card-right .comment-container .edit-comment .edit-comment-form input[type=text] {
   color: #4E5166;
   margin: 4px 0;
-  background: #FFD7D7;
   font-size: 1.15rem;
   padding: 16px;
   width: 100%;
@@ -525,7 +524,7 @@ nav .nav-container ul li img {
   cursor: pointer;
 }
 .card-container .card-right .comment-container .edit-comment .edit-comment-form .btn span:hover {
-  background: #FFD7D7;
+  transform: scale(1.05);
 }
 .card-container .card-right .comment-container .edit-comment .edit-comment-form .btn span img {
   transform: translate(-5px, 0);
