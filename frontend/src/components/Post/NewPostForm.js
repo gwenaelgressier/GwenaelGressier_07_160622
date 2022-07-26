@@ -64,7 +64,7 @@ const NewPostForm = () => {
                             onChange={(e) => setMessage(e.target.value)}
                             value={message}
                         />
-                        {message || postPicture > 20 ? (
+                        {message || postPicture ? (
                             <li className="card-container">
                                 <div className="card-left">
                                     <img
