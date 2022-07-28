@@ -41,7 +41,7 @@ const CardComments = ({ post }) => {
                                             if (
                                                 user._id === comment.commenterId
                                             )
-                                                return user.picture;
+                                                return userData.picture;
                                             else return null;
                                         })
                                         .join("")

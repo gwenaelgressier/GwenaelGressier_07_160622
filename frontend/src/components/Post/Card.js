@@ -39,7 +39,7 @@ const Card = ({ post }) => {
                                 usersData
                                     .map((user) => {
                                         if (user._id === post.posterId)
-                                            return user.picture;
+                                            return userData.picture;
                                         else return null;
                                     })
                                     .join("")
